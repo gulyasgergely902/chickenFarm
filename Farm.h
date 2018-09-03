@@ -1,6 +1,4 @@
-//
-// Created by dsindahouse on 9/3/18.
-//
+#pragma once
 
 #ifndef CHICKENFARM_FARM_H
 #define CHICKENFARM_FARM_H
@@ -8,10 +6,9 @@
 #include "Utils.h"
 #include <QDebug>
 
-
 class Farm{
 public:
-    Farm();
+    void init();
 };
 
 
