@@ -10,3 +10,9 @@ void Utils::printMenu() {
     qDebug() << "6: Kill all chickens";
     qDebug() << "7: Quit";
 }
+
+int Utils::getInput() {
+    QTextStream qTextStream(stdin);
+    QString input = qTextStream.readLine(1);
+    return input.toInt();
+}
