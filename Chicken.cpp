@@ -2,7 +2,7 @@
 
 Chicken::Chicken(float _eggInt, int _chickenId): eggInterval(_eggInt), chickenId(_chickenId) {
     eggCount = 0;
-    qDebug() << "[Chicken " << chickenId << "]: Chicken has been created with interval: " << timer->interval();
+    qDebug() << "[Chicken " << chickenId << "]: Chicken has been created with interval: " << eggInterval;
 }
 
 Chicken::~Chicken() {

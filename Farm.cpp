@@ -12,39 +12,27 @@ void Farm::addChicken() {
     float X = 11.5;
     float randomInterval = (static_cast <float> (rand()) / (RAND_MAX/X)) + 1;
 
-    qDebug() << "creating chicken";
-    qDebug() << "randint:" << randomInterval;
-    qDebug() << "numofc:" << numberOfChicken;
     Chicken* chicken = new Chicken(randomInterval, numberOfChicken);
-
-    qDebug() << "creating thread";
     QThread* thread = new QThread;
 
     QPair<QThread*, Chicken*> chickenData;
     chickenData.first = thread;
     chickenData.second = chicken;
-    qDebug() << "creating qpair";
 
     chickens.insert(numberOfChicken, chickenData);
-    qDebug() << "inserting into chickens";
 
     chickens.value(numberOfChicken).second->moveToThread(chickens.value(numberOfChicken).first);
-    qDebug() << "moving chicken onto thread";
 
     connect(chickens.value(numberOfChicken).first, &QThread::finished, chickens.value(numberOfChicken).second, &Chicken::onChickenKill_slot);
     connect(chickens.value(numberOfChicken).first, &QThread::started, chickens.value(numberOfChicken).second, &Chicken::initChicken_slot);
-    qDebug() << "connecting";
 
     chickens.value(numberOfChicken).first->start(QThread::NormalPriority);
-    qDebug() << "starting threads";
 
     numberOfChicken++;
-    qDebug() << "chickens++";
 
     for(auto it = chickens.begin(); it != chickens.end(); ++it){
         qDebug() << it.value().first << " is running: " << it.value().first->isRunning() << ", is finished: " << it.value().first->isFinished();
     }
-    qDebug() << "debug info";
 }
 
 void Farm::killChicken(const int &id){
