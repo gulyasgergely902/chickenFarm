@@ -36,16 +36,14 @@ void Farm::addChicken() {
 }
 
 void Farm::killChicken(const int &id){
-    qDebug() << "chickens @ id: " << id << ". entry is scheduled for deletion!";
-
     chickens.take(id).first->quit();
-    qDebug() << "chickens @ id: thread is quitting";
+    qDebug() << "[killChicken]: chicken " << id << "'s thread is quitting";
 
     chickens.take(id).first->wait();
-    qDebug() << "chickens @ id: thread is waiting";
+    qDebug() << "[killChicken]: chicken " << id << "'s thread is waiting";
 
     delete chickens.take(id).second;
-    qDebug() << "chickens @ id: deleting entry";
+    qDebug() << "[killChicken]: chicken " << id << " is deleted";
 }
 
 void Farm::listEggs() {
