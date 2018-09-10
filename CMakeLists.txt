@@ -3,7 +3,8 @@ project(chickenFarm)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(QT_DIR /home/dsindahouse/Qt5.11.1/5.11.1/gcc_64)
+#set(QT_DIR /home/dsindahouse/Qt5.11.1/5.11.1/gcc_64)
+set(QT_DIR /home/gulyas/Qt/5.11.1/gcc_64)
 
 find_package(Qt5Core REQUIRED HINTS ${QT_DIR})
 

@@ -26,6 +26,8 @@ int main(int argc, char *argv[]) {
                 farm->addChicken();
                 break;
             case static_cast<int>(Actions::KILL):
+                qDebug() << "Which chicken do you want to kill?";
+                farm->killChicken(utils->getInput());
                 break;
             case static_cast<int>(Actions::LISTEGGS):
                 farm->listEggs();
@@ -38,9 +40,12 @@ int main(int argc, char *argv[]) {
                 farm->layEgg(utils->getInput());
                 break;
             case static_cast<int>(Actions::KILLALL):
-
+                farm->killAll();
                 break;
             case static_cast<int>(Actions::EXIT):
+                farm->killAll();
+                delete utils;
+                delete farm;
                 return 0;
         }
     }

@@ -30,6 +30,10 @@ float Chicken::getInterval() {
     return eggInterval;
 }
 
+int Chicken::getId() {
+    return chickenId;
+}
+
 void Chicken::onChickenKill_slot() {
     timer->stop();
 }
