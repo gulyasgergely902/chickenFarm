@@ -11,6 +11,7 @@ public:
     ~Chicken();
     int getEggCount();
     float getInterval();
+    int getId();
 public slots:
     void layEgg_slot();
     void onChickenKill_slot();

@@ -40,9 +40,12 @@ int main(int argc, char *argv[]) {
                 farm->layEgg(utils->getInput());
                 break;
             case static_cast<int>(Actions::KILLALL):
-
+                farm->killAll();
                 break;
             case static_cast<int>(Actions::EXIT):
+                farm->killAll();
+                delete utils;
+                delete farm;
                 return 0;
         }
     }

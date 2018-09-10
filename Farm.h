@@ -20,11 +20,12 @@ public:
     void listEggs();
     void listIntervals();
     void layEgg(const int &id);
+	void killAll();
 public slots:
     //void emitHandler_slot(const int &incomingEmit);
 private:
     QMap<int, QPair<QThread*, Chicken*>> chickens;
-    int numberOfChicken;
+    int numberOfChicken = 0;
 };
 
 
