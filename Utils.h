@@ -8,9 +8,8 @@
 
 class Utils {
 public:
-    void printMenu();
-    int getInput();
+	void printMenu();
+	int getInput();
 };
-
 
 #endif //CHICKENFARM_UTILS_H
