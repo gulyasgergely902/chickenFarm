@@ -8,6 +8,6 @@ set(QT_DIR /home/gulyas/Qt/5.11.1/gcc_64)
 
 find_package(Qt5Core REQUIRED HINTS ${QT_DIR})
 
-add_executable(chickenFarm main.cpp Farm.cpp Farm.h Utils.cpp Utils.h Chicken.cpp Chicken.h)
+add_executable(chickenFarm main.cpp Farm.cpp Utils.cpp Chicken.cpp)
 
 target_link_libraries(chickenFarm Qt5::Core)

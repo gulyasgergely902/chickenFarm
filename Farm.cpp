@@ -1,16 +1,14 @@
 #include "Farm.h"
 
+#include <cstdlib>
+#include <ctime>
+
 Farm::Farm() {
 	srand(static_cast <unsigned> (time(0)));
 }
 
-Farm::~Farm() {
-
-}
-
 void Farm::addChicken() {
-	float X = 11.5;
-	float randomInterval = (static_cast <float> (rand()) / (RAND_MAX / X)) + 1;
+	float randomInterval = (static_cast <float> (rand()) / (RAND_MAX / RNG_MAX)) + 1;
 
 	auto *chicken = new Chicken(randomInterval, numberOfChicken);
 	auto *thread = new QThread;
@@ -24,7 +22,6 @@ void Farm::addChicken() {
 	chicken->moveToThread(thread);
 
 	connect(thread, &QThread::started, chicken, &Chicken::initChicken_slot);
-	connect(thread, &QThread::finished, chicken, &Chicken::onChickenKill_slot);
 
 	thread->start(QThread::NormalPriority);
 
@@ -63,7 +60,7 @@ void Farm::layEgg(const int &id) {
 }
 
 void Farm::killAll() {
-	for(auto chicken : chickens.keys()) {
-		killChicken(chicken);
+	for(auto id : chickens.keys()) {
+		killChicken(id);
 	}
 }

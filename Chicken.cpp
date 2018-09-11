@@ -1,7 +1,6 @@
 #include "Chicken.h"
 
 Chicken::Chicken(float _eggInt, int _chickenId) : eggInterval(_eggInt), chickenId(_chickenId) {
-	eggCount = 0;
 	qDebug() << "[Chicken " << chickenId << "]: Chicken has been created with interval: " << eggInterval;
 }
 
@@ -33,8 +32,4 @@ float Chicken::getInterval() {
 
 int Chicken::getId() {
 	return chickenId;
-}
-
-void Chicken::onChickenKill_slot() {
-	timer->stop();
 }

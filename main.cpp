@@ -47,6 +47,7 @@ int main(int argc, char *argv[]) {
 				delete utils;
 				delete farm;
 				return 0;
+			default:break;
 		}
 	}
 
